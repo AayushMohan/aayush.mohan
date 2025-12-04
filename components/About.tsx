@@ -1,7 +1,10 @@
+"use client";
 import Image from "next/image";
 import { CardSpotlight } from "./ui/card-spotlight";
+import { TextGenerateEffect } from "./ui/text-generate-effect";
 
 const About = () => {
+  const words = `Hey, I’m Aayush Mohan — a web developer and AI enthusiast with a passion for building clean, high-performing digital experiences. From designing sleek user interfaces to engineering robust backends, I love turning ideas into interactive, impactful products. Over the years, I’ve worked on e-commerce websites, responsive web apps, and experimental AI-driven projects, always striving to blend creativity with functionality. Right now, I’m focused on helping businesses elevate their online presence through custom web solutions that are fast, modern, and user-centric. I believe great design is more than aesthetics — it’s about clarity, flow, and purpose. If you're looking for someone who’s obsessed with code quality, smooth user experiences, and meaningful results — we might just be a great fit. Let’s build something that stands out.`;
   return (
     <section className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-black px-6 py-12 md:py-20 gap-12 md:gap-24">
       {/* Profile Image - First on both mobile and desktop */}
@@ -21,7 +24,8 @@ const About = () => {
           About
         </p>
         <div className="text-neutral-200 mt-4 space-y-5 z-20">
-          <p className="text-base md:text-lg leading-relaxed">
+          <TextGenerateEffect words={words} />
+          {/* <p className="text-base md:text-lg leading-relaxed">
             Hey, I’m{" "}
             <span className="font-semibold text-white">Aayush Mohan</span> — a
             web developer and AI enthusiast with a passion for building clean,
@@ -47,7 +51,7 @@ const About = () => {
           </p>
           <p className="text-base md:text-lg font-medium leading-relaxed">
             Let’s build something that stands out.
-          </p>
+          </p> */}
         </div>
       </CardSpotlight>
     </section>

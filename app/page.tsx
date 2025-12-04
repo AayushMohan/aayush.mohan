@@ -1,19 +1,23 @@
 import About from "@/components/About";
+import CursorGlow from "@/components/CursorGlow";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
+import Skills from "@/components/Skills";
 
 export default function Home() {
   return (
-    <div>
-      <section className="h-screen">
-        <Hero />
-      </section>
-      <section id="about">
-        <About />
-      </section>
-      <section id="services">
-        <Services />
-      </section>
+    <div className="min-h-screen relative overflow-x-hidden">
+      <CursorGlow />
+      <main>
+        <section>
+          <Hero />
+        </section>
+        <section id="about">
+          <About />
+        </section>
+        <section>
+          <Skills />
+        </section>
+      </main>
     </div>
   );
 }

@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { Spotlight } from "./ui/spotlight-new";
 import BackgroundCircles from "./BackgroundCircles";
@@ -14,7 +13,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative min-h-screen w-full bg-black/[0.96] antialiased bg-grid-white/[0.02] overflow-hidden flex flex-col justify-center items-center px-4 py-12">
+    <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-center bg-black/[0.96] bg-grid-white/[0.02] px-8 py-20 gap-16 md:gap-32 overflow-hidden">
       <Spotlight />
       <div className="relative z-10 flex flex-col items-center space-y-6 text-center">
         <BackgroundCircles />

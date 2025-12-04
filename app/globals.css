@@ -1,6 +1,24 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* hide native cursor everywhere while html has .custom-cursor */
+html.custom-cursor,
+html.custom-cursor * {
+  cursor: none !important;
+}
+
+/* allow native cursor for explicit interactive controls (optional — keeps caret and expected UX) */
+html.custom-cursor a,
+html.custom-cursor button,
+html.custom-cursor input,
+html.custom-cursor textarea,
+html.custom-cursor select,
+html.custom-cursor [contenteditable="true"],
+html.custom-cursor [role="button"],
+html.custom-cursor [tabindex] {
+  cursor: auto !important;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -123,5 +141,21 @@
 @layer components {
   .heroButton {
     @apply px-4 md:px-6 py-2 hover:border border-[#1D2A44] rounded-full uppercase text-[10px] lg:text-xs tracking-widest text-gray-500 transition-all hover:border-[#4A6CF6/40] hover:text-[#4A6CF6/40] cursor-pointer;
+  }
+}
+@theme inline {
+  --animate-cell-ripple: cell-ripple var(--duration, 200ms) ease-out none 1
+    var(--delay, 0ms);
+
+  @keyframes cell-ripple {
+    0% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0.4;
+    }
   }
 }

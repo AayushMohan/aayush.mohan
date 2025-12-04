@@ -50,13 +50,12 @@ export const CardSpotlight = ({
           maskImage: useMotionTemplate`
             radial-gradient(
               ${radius}px circle at ${mouseX}px ${mouseY}px,
-              white,
-              transparent 80%
+              transparent 40%
             )
           `,
         }}
       >
-        {isHovering && (
+        {/* {isHovering && (
           <CanvasRevealEffect
             animationSpeed={5}
             containerClassName="bg-transparent absolute inset-0 pointer-events-none"
@@ -66,7 +65,7 @@ export const CardSpotlight = ({
             ]}
             dotSize={3}
           />
-        )}
+        )} */}
       </motion.div>
       {children}
     </div>
