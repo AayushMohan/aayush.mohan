@@ -1,59 +1,93 @@
 "use client";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { CardSpotlight } from "./ui/card-spotlight";
-import { TextGenerateEffect } from "./ui/text-generate-effect";
+import { useRef } from "react";
+import { aboutCopy, aboutHeading, aboutImage } from "./data/aboutData";
+
+const fadeUp = {
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-100px" },
+  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
+};
 
 const About = () => {
-  const words = `Hey, I’m Aayush Mohan — a web developer and AI enthusiast with a passion for building clean, high-performing digital experiences. From designing sleek user interfaces to engineering robust backends, I love turning ideas into interactive, impactful products. Over the years, I’ve worked on e-commerce websites, responsive web apps, and experimental AI-driven projects, always striving to blend creativity with functionality. Right now, I’m focused on helping businesses elevate their online presence through custom web solutions that are fast, modern, and user-centric. I believe great design is more than aesthetics — it’s about clarity, flow, and purpose. If you're looking for someone who’s obsessed with code quality, smooth user experiences, and meaningful results — we might just be a great fit. Let’s build something that stands out.`;
-  return (
-    <section className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-black px-6 py-12 md:py-20 gap-12 md:gap-24">
-      {/* Profile Image - First on both mobile and desktop */}
-      <div className="order-1 md:order-1 w-full md:w-[30%] flex justify-center md:justify-start">
-        <Image
-          src="https://cdn.sanity.io/images/nahptg7w/production/214b077f7a78bf10d1dd8c47afd9748583c60d51-3008x4624.jpg?w=2000&fit=max&auto=format&dpr=2"
-          alt="Aayush Mohan"
-          width={350}
-          height={500}
-          className="rounded-2xl object-cover w-48 h-48 md:w-64 md:h-80 xl:w-[350px] xl:h-[500px] shadow-md"
-        />
-      </div>
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const imageY = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
-      {/* Text Content */}
-      <CardSpotlight className="order-2 md:order-2 w-full md:w-[50%] max-w-2xl flex flex-col items-center md:items-start justify-center bg-black/50 p-6 md:p-10 rounded-2xl">
-        <p className="text-3xl md:text-4xl font-semibold text-gray-100 pb-2 tracking-[3px] md:tracking-[10px] uppercase z-20">
+  return (
+    <section id="about" className="section-padding" ref={sectionRef}>
+      <div className="max-w-7xl mx-auto">
+        <motion.p {...fadeUp} className="label-caps mb-4">
           About
-        </p>
-        <div className="text-neutral-200 mt-4 space-y-5 z-20">
-          <TextGenerateEffect words={words} />
-          {/* <p className="text-base md:text-lg leading-relaxed">
-            Hey, I’m{" "}
-            <span className="font-semibold text-white">Aayush Mohan</span> — a
-            web developer and AI enthusiast with a passion for building clean,
-            high-performing digital experiences.
-          </p>
-          <p className="text-base md:text-lg leading-relaxed">
-            From designing sleek user interfaces to engineering robust backends,
-            I love turning ideas into interactive, impactful products. Over the
-            years, I’ve worked on e-commerce websites, responsive web apps, and
-            experimental AI-driven projects, always striving to blend creativity
-            with functionality.
-          </p>
-          <p className="text-base md:text-lg leading-relaxed">
-            Right now, I’m focused on helping businesses elevate their online
-            presence through custom web solutions that are fast, modern, and
-            user-centric. I believe great design is more than aesthetics — it’s
-            about clarity, flow, and purpose.
-          </p>
-          <p className="text-base md:text-lg leading-relaxed">
-            If you&apos;re looking for someone who’s obsessed with code quality,
-            smooth user experiences, and meaningful results — we might just be a
-            great fit.
-          </p>
-          <p className="text-base md:text-lg font-medium leading-relaxed">
-            Let’s build something that stands out.
-          </p> */}
+        </motion.p>
+
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="relative w-full max-w-sm mx-auto md:mx-0"
+          >
+            <motion.div
+              style={{ y: imageY }}
+              className="relative aspect-[3/4] rounded-2xl overflow-hidden"
+            >
+              <Image
+                alt={aboutImage.alt}
+                src={aboutImage.src}
+                fill
+                priority
+                className="object-cover"
+                sizes={aboutImage.sizes}
+              />
+            </motion.div>
+            <div className="absolute -bottom-3 -right-3 w-full h-full rounded-2xl border border-primary/20 -z-10" />
+            <motion.div
+              className="absolute -top-3 -left-3 w-full h-full rounded-2xl border border-primary/10 -z-10"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+            />
+          </motion.div>
+
+          <div>
+            <motion.h2
+              {...fadeUp}
+              className="heading-lg mb-8"
+              style={{ color: "hsl(var(--text-primary))" }}
+            >
+              {aboutHeading.titleTop}
+              <br />
+              <span className="text-gradient-gold">
+                {aboutHeading.titleBottom}
+              </span>
+            </motion.h2>
+
+            <motion.p
+              {...fadeUp}
+              transition={{ ...fadeUp.transition, delay: 0.1 }}
+              className="body-lg mb-6"
+            >
+              {aboutCopy.primary}
+            </motion.p>
+
+            <motion.p
+              {...fadeUp}
+              transition={{ ...fadeUp.transition, delay: 0.2 }}
+              className="body-lg"
+            >
+              {aboutCopy.secondary}
+            </motion.p>
+          </div>
         </div>
-      </CardSpotlight>
+      </div>
     </section>
   );
 };

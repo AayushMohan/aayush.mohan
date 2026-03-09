@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { motion, stagger, useAnimate } from "motion/react";
 import { cn } from "@/lib/utils";
 
@@ -15,7 +15,7 @@ export const TextGenerateEffect = ({
   duration?: number;
 }) => {
   const [scope, animate] = useAnimate();
-  const wordsArray = words.split(" ");
+  const wordsArray = useMemo(() => words.split(" "), [words]);
   useEffect(() => {
     animate(
       "span",
@@ -26,9 +26,9 @@ export const TextGenerateEffect = ({
       {
         duration: duration ? duration : 1,
         delay: stagger(0.2),
-      }
+      },
     );
-  }, [scope.current]);
+  }, [animate, duration, filter, wordsArray]);
 
   const renderWords = () => {
     return (

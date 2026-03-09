@@ -1,108 +1,94 @@
 "use client";
-import Image from "next/image";
-import { BackgroundRippleEffect } from "./ui/background-ripple-effect";
 
-const skills = [
-  {
-    name: "TypeScript",
-    icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/typescript.svg",
-  },
-  {
-    name: "React",
-    icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/react.svg",
-  },
-  {
-    name: "Next.js",
-    icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/nextdotjs.svg",
-  },
-  {
-    name: "Redux",
-    icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/redux.svg",
-  },
-  {
-    name: "Tailwind CSS",
-    icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tailwindcss.svg",
-  },
-  {
-    name: "GraphQL",
-    icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/graphql.svg",
-  },
-  {
-    name: "MongoDB",
-    icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/mongodb.svg",
-  },
-  {
-    name: "Git",
-    icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/git.svg",
-  },
-  {
-    name: "Vercel",
-    icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/vercel.svg",
-  },
-  {
-    name: "Docker",
-    icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/docker.svg",
-  },
-  {
-    name: "Python",
-    icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg",
-  },
-  {
-    name: "PyTorch",
-    icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/pytorch.svg",
-  },
-  {
-    name: "Shopify",
-    icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/shopify.svg",
-  },
-  {
-    name: "Wix",
-    icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/wix.svg",
-  },
-  {
-    name: "Figma",
-    icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/figma.svg",
-  },
-  {
-    name: "WebFlow",
-    icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/webflow.svg",
-  },
-];
+/* eslint-disable @next/next/no-img-element */
 
-const Skills = () => {
+import { motion } from "framer-motion";
+import SpotlightCard from "./SpotlightCard";
+import { skillCategories } from "./data/skillsData";
+
+export default function Skills() {
   return (
-    <div className="relative flex min-h-screen w-full flex-col items-start justify-start overflow-hidden bg-black/[0.96] bg-grid-white/[0.02] px-8 py-20">
-      <BackgroundRippleEffect />
-      <div className="w-full">
-        <h2 className="relative z-10 mx-auto max-w-4xl text-center text-2xl font-bold text-neutral-100 md:text-4xl lg:text-7xl">
+    <section id="skills" className="section-padding overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="label-caps mb-4"
+        >
           Skills
-        </h2>
-        <p className="relative z-10 mx-auto mt-4 max-w-xl text-center text-neutral-500">
-          Here are some of the technologies and tools I work with. I focus on
-          building scalable, performant web applications using modern frameworks
-          and libraries.
-        </p>
-        <div className="relative z-10 mx-auto mt-10 grid max-w-6xl grid-cols-2 gap-6 md:grid-cols-8">
-          {skills.map((skill) => (
-            <div
-              key={skill.name}
-              className="flex flex-col items-center justify-center rounded-xl border border-white/10 bg-white/5 px-6 py-8 text-neutral-100 transition hover:bg-white/10 hover:shadow-lg"
+        </motion.p>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="heading-lg mb-16"
+          style={{ color: "hsl(var(--text-primary))" }}
+        >
+          Technologies I <span className="text-gradient-gold">work with</span>
+        </motion.h2>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {skillCategories.map((category, categoryIndex) => (
+            <motion.div
+              key={category.title}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: categoryIndex * 0.15, duration: 0.7 }}
             >
-              <Image
-                src={skill.icon}
-                alt={skill.name + " icon"}
-                width={32}
-                height={32}
-                className="mb-2 opacity-80 invert"
-              />
-              <span className="text-lg font-medium text-neutral-300">
-                {skill.name}
-              </span>
-            </div>
+              <SpotlightCard className="p-6 md:p-8 h-full group">
+                <div className="flex items-center gap-3 mb-2">
+                  <motion.div
+                    className="w-2 h-2 rounded-full bg-primary"
+                    animate={{ scale: [1, 1.3, 1] }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      delay: categoryIndex * 0.3,
+                    }}
+                  />
+                  <h3 className="text-sm font-display font-semibold text-primary tracking-wide uppercase">
+                    {category.title}
+                  </h3>
+                </div>
+                <p className="text-xs text-muted-foreground mb-6">
+                  {category.description}
+                </p>
+                <div className="grid grid-cols-4 gap-4">
+                  {category.skills.map(({ name, icon }, skillIndex) => (
+                    <motion.div
+                      key={name}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        delay: categoryIndex * 0.1 + skillIndex * 0.05,
+                        duration: 0.4,
+                      }}
+                      whileHover={{ y: -6, scale: 1.1 }}
+                      className="group/skill flex flex-col items-center gap-2"
+                    >
+                      <div className="w-12 h-12 rounded-xl bg-secondary/50 border border-border flex items-center justify-center group-hover/skill:border-primary/40 group-hover/skill:bg-primary/5 group-hover/skill:shadow-[0_0_20px_-5px_hsl(42_78%_55%/0.2)] transition-all duration-300">
+                        <img
+                          src={icon}
+                          alt={name}
+                          className="w-7 h-7 object-contain"
+                        />
+                      </div>
+                      <span className="text-[10px] text-muted-foreground group-hover/skill:text-foreground transition-colors font-medium text-center leading-tight">
+                        {name}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
+              </SpotlightCard>
+            </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
-};
-export default Skills;
+}
