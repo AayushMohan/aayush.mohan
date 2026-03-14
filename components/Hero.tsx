@@ -95,9 +95,9 @@ const Hero = () => {
 
       {/* Profile image */}
       <motion.div
-        initial={{ scale: 0.5, opacity: 0 }}
+        initial={{ scale: 0.96, opacity: 1 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         className="relative z-10 mb-8"
       >
         <div className="relative">
@@ -120,18 +120,18 @@ const Hero = () => {
       </motion.div>
 
       <motion.p
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 1, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.6 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
         className="label-caps mb-6 relative z-10"
       >
         {heroCopy.rolesLabel}
       </motion.p>
 
       <motion.h1
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 1, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="heading-xl text-center relative z-10"
         style={{ color: "hsl(var(--text-primary))" }}
       >
@@ -146,9 +146,9 @@ const Hero = () => {
       </motion.h1>
 
       <motion.p
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 1, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.7, duration: 0.6 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className="body-lg text-center max-w-lg mt-6 relative z-10"
       >
         {heroCopy.introLine}
@@ -156,9 +156,9 @@ const Hero = () => {
 
       {/* CTA Buttons with magnetic effect */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 1, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.9, duration: 0.6 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="flex gap-4 mt-10 relative z-10"
       >
         <MagneticButton
