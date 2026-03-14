@@ -3,11 +3,11 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Clock, Calendar } from "lucide-react";
+import Image from "next/image";
 import SpotlightCard from "./SpotlightCard";
 import { blogs } from "./data/blogsData";
 
 const Blogs = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   return (
@@ -41,20 +41,16 @@ const Blogs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.7 }}
-              onMouseEnter={() => setHoveredIndex(i)}
-              onMouseLeave={() => setHoveredIndex(null)}
             >
               <SpotlightCard className="group h-full flex flex-col cursor-pointer transition-all duration-500 hover:border-primary/30">
                 {/* Image */}
                 <div className="relative overflow-hidden rounded-t-2xl aspect-[16/10]">
-                  <motion.img
+                  <Image
                     src={blog.image}
                     alt={blog.title}
-                    className="w-full h-full object-cover"
-                    animate={{
-                      scale: hoveredIndex === i ? 1.08 : 1,
-                    }}
-                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.08]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
                   <div className="absolute top-4 left-4">

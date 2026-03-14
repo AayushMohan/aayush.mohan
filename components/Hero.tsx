@@ -1,14 +1,8 @@
 "use client";
-import { useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import MagneticButton from "./MagneticButton";
-import FloatingParticles from "./FloatingParticles";
-import {
-  useBlinkingCursor,
-  useHeroParallax,
-  useTypingText,
-} from "./hero/heroHooks";
+import { useBlinkingCursor, useTypingText } from "./hero/heroHooks";
 import {
   getBaseRingBorderColor,
   getOrbitDotStyle,
@@ -25,25 +19,14 @@ import {
 } from "./data/heroData";
 
 const Hero = () => {
-  const sectionRef = useRef<HTMLElement | null>(null);
   const displayText = useTypingText(heroName, heroTyping.speedMs);
   const showCursor = useBlinkingCursor(heroTyping.cursorBlinkMs);
-  const { particlesX, particlesY, glowX, glowY } = useHeroParallax(sectionRef);
 
   return (
     <section
       id="hero"
-      ref={sectionRef}
       className="relative min-h-screen flex flex-col items-center justify-center section-padding overflow-hidden"
     >
-      {/* Floating particles layer with parallax */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none z-0"
-        style={{ x: particlesX, y: particlesY }}
-      >
-        <FloatingParticles fixed={false} />
-      </motion.div>
-
       {/* Concentric rings */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[2]">
         {heroRings.indices.map((i) => (
@@ -105,8 +88,6 @@ const Hero = () => {
         animate={{ opacity: [0.1, 0.2, 0.1], scale: [1, 1.05, 1] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         style={{
-          x: glowX,
-          y: glowY,
           background:
             "radial-gradient(circle, hsl(var(--accent) / 0.12), transparent 70%)",
         }}

@@ -42,7 +42,6 @@ const About = () => {
                 alt={aboutImage.alt}
                 src={aboutImage.src}
                 fill
-                priority
                 className="object-cover"
                 sizes={aboutImage.sizes}
               />

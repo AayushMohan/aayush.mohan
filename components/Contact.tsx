@@ -2,6 +2,7 @@
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Calendar, Mail, Sparkles } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import SpotlightCard from "./SpotlightCard";
 import { contactCopy, contactLinks } from "./data/contactData";
 
@@ -13,6 +14,28 @@ const ContactGlobe = dynamic(() => import("./ContactGlobe"), {
 });
 
 const Contact = () => {
+  const globeMountRef = useRef<HTMLDivElement | null>(null);
+  const [shouldLoadGlobe, setShouldLoadGlobe] = useState(false);
+
+  useEffect(() => {
+    const el = globeMountRef.current;
+    if (!el || shouldLoadGlobe) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry?.isIntersecting) {
+          setShouldLoadGlobe(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "300px" },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [shouldLoadGlobe]);
+
   return (
     <section id="contact" className="section-padding relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
@@ -120,7 +143,13 @@ const Contact = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-transparent z-10 pointer-events-none opacity-50" />
-            <ContactGlobe />
+            <div ref={globeMountRef} className="absolute inset-0">
+              {shouldLoadGlobe ? (
+                <ContactGlobe />
+              ) : (
+                <div className="absolute inset-0 animate-pulse rounded-2xl border border-primary/20 bg-card/40" />
+              )}
+            </div>
           </motion.div>
         </div>
       </div>

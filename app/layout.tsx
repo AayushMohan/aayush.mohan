@@ -4,6 +4,7 @@ import "./globals.css";
 import { siteConfig } from "@/lib/site";
 import Script from "next/script";
 import Clarity from "@/components/Clarity";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -118,6 +119,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }}
         />
         {children}
+        <Analytics />
       </body>
     </html>
   );

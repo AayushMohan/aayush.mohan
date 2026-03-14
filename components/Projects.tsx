@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
+import Image from "next/image";
 import SpotlightCard from "./SpotlightCard";
 import { projects } from "./data/projectsData";
 
@@ -87,15 +88,15 @@ const Projects = () => {
                     spotlightColor="hsl(var(--accent) / 0.12)"
                   >
                     <div
-                      className="aspect-video overflow-hidden"
+                      className="relative aspect-video overflow-hidden"
                       style={{ direction: "ltr" }}
                     >
-                      <motion.img
+                      <Image
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover"
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.6 }}
+                        fill
+                        sizes="(min-width: 768px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                     </div>
                   </SpotlightCard>
