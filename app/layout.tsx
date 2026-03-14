@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/site";
 import Script from "next/script";
 import Clarity from "@/components/Clarity";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -120,6 +121,7 @@ export default function RootLayout({
         />
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
