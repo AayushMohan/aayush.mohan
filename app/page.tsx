@@ -47,7 +47,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background relative">
+    <main className="min-h-screen bg-background relative">
       <FloatingParticles />
       <Navbar />
       <Hero />
@@ -57,6 +57,6 @@ export default function Home() {
       <Blogs />
       <Contact />
       <Footer />
-    </div>
+    </main>
   );
 }

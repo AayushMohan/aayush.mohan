@@ -5,7 +5,13 @@ import { getMediumArticles } from "@/lib/medium";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
  const base = siteConfig.url.replace(/\/$/, "");
 
- const articles = await getMediumArticles("aayushmohan");
+ let articles: Awaited<ReturnType<typeof getMediumArticles>> = [];
+ try {
+  articles = await getMediumArticles("aayushmohan");
+ } catch {
+  // If Medium is temporarily unavailable, still serve a valid sitemap.
+  articles = [];
+ }
 
  const blogPosts: MetadataRoute.Sitemap = articles.map((a) => ({
   url: `${base}/blog/${a.slug}`,

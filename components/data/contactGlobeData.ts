@@ -2,18 +2,18 @@ import type { GlobeConfig, Position } from "../ui/globe";
 
 export const contactGlobeConfig: GlobeConfig = {
  pointSize: 0.8,
- globeColor: "#111111",
+ globeColor: "#23282d",
  showAtmosphere: true,
- atmosphereColor: "#daa520",
+ atmosphereColor: "#8bb3ec",
  atmosphereAltitude: 0.25,
  emissive: "#1a1a1a",
- emissiveIntensity: 0.3,
- shininess: 0.7,
- polygonColor: "rgba(218,165,32,0.7)",
- ambientLight: "#daa520",
+ emissiveIntensity: 0.22,
+ shininess: 1,
+ polygonColor: "rgba(139,179,236,0.35)",
+ ambientLight: "#8bb3ec",
  directionalLeftLight: "#ffffff",
- directionalTopLight: "#ffd700",
- pointLight: "#daa520",
+ directionalTopLight: "#e2e5e7",
+ pointLight: "#8bb3ec",
  arcTime: 1000,
  arcLength: 0.9,
  rings: 1,
@@ -23,7 +23,7 @@ export const contactGlobeConfig: GlobeConfig = {
  autoRotateSpeed: 0.5,
 };
 
-const colors = ["#b8860b", "#daa520"];
+const colors = ["#8bb3ec", "#e2e5e7"];
 
 export const contactSampleArcs: Position[] = [
  {
@@ -33,7 +33,7 @@ export const contactSampleArcs: Position[] = [
   endLat: -22.9068,
   endLng: -43.1729,
   arcAlt: 0.1,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 1,
@@ -42,7 +42,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 3.139,
   endLng: 101.6869,
   arcAlt: 0.2,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 1,
@@ -51,7 +51,7 @@ export const contactSampleArcs: Position[] = [
   endLat: -1.303396,
   endLng: 36.852443,
   arcAlt: 0.5,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 2,
@@ -60,7 +60,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 35.6762,
   endLng: 139.6503,
   arcAlt: 0.2,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 2,
@@ -69,7 +69,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 3.139,
   endLng: 101.6869,
   arcAlt: 0.3,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 2,
@@ -78,7 +78,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 36.162809,
   endLng: -115.119411,
   arcAlt: 0.3,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 3,
@@ -87,7 +87,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 22.3193,
   endLng: 114.1694,
   arcAlt: 0.3,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 3,
@@ -96,7 +96,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 40.7128,
   endLng: -74.006,
   arcAlt: 0.3,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 3,
@@ -105,7 +105,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 51.5072,
   endLng: -0.1276,
   arcAlt: 0.3,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 4,
@@ -114,7 +114,7 @@ export const contactSampleArcs: Position[] = [
   endLat: -15.595412,
   endLng: -56.05918,
   arcAlt: 0.5,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 4,
@@ -123,7 +123,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 22.3193,
   endLng: 114.1694,
   arcAlt: 0.7,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 4,
@@ -132,7 +132,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 48.8566,
   endLng: -2.3522,
   arcAlt: 0.1,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 5,
@@ -141,7 +141,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 51.5072,
   endLng: -0.1276,
   arcAlt: 0.3,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 5,
@@ -150,7 +150,7 @@ export const contactSampleArcs: Position[] = [
   endLat: -33.8688,
   endLng: 151.2093,
   arcAlt: 0.2,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 5,
@@ -159,7 +159,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 48.8566,
   endLng: -2.3522,
   arcAlt: 0.2,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 6,
@@ -168,7 +168,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 1.094136,
   endLng: -63.34546,
   arcAlt: 0.7,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 6,
@@ -177,7 +177,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 35.6762,
   endLng: 139.6503,
   arcAlt: 0.1,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 6,
@@ -186,7 +186,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 51.5072,
   endLng: -0.1276,
   arcAlt: 0.3,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 7,
@@ -195,7 +195,7 @@ export const contactSampleArcs: Position[] = [
   endLat: -15.595412,
   endLng: -56.05918,
   arcAlt: 0.1,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 7,
@@ -204,7 +204,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 52.52,
   endLng: 13.405,
   arcAlt: 0.1,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 7,
@@ -213,7 +213,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 34.0522,
   endLng: -118.2437,
   arcAlt: 0.2,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 8,
@@ -222,7 +222,7 @@ export const contactSampleArcs: Position[] = [
   endLat: -33.936138,
   endLng: 18.436529,
   arcAlt: 0.2,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 8,
@@ -231,7 +231,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 52.3676,
   endLng: 4.9041,
   arcAlt: 0.2,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 8,
@@ -240,7 +240,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 40.7128,
   endLng: -74.006,
   arcAlt: 0.5,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 9,
@@ -249,7 +249,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 34.0522,
   endLng: -118.2437,
   arcAlt: 0.2,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 9,
@@ -258,7 +258,7 @@ export const contactSampleArcs: Position[] = [
   endLat: -22.9068,
   endLng: -43.1729,
   arcAlt: 0.7,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 9,
@@ -267,7 +267,7 @@ export const contactSampleArcs: Position[] = [
   endLat: -34.6037,
   endLng: -58.3816,
   arcAlt: 0.5,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 10,
@@ -276,7 +276,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 28.6139,
   endLng: 77.209,
   arcAlt: 0.7,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 10,
@@ -285,7 +285,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 31.2304,
   endLng: 121.4737,
   arcAlt: 0.3,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 10,
@@ -294,7 +294,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 52.3676,
   endLng: 4.9041,
   arcAlt: 0.3,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 11,
@@ -303,7 +303,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 34.0522,
   endLng: -118.2437,
   arcAlt: 0.2,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 11,
@@ -312,7 +312,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 31.2304,
   endLng: 121.4737,
   arcAlt: 0.2,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 11,
@@ -321,7 +321,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 1.3521,
   endLng: 103.8198,
   arcAlt: 0.2,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 12,
@@ -330,7 +330,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 37.7749,
   endLng: -122.4194,
   arcAlt: 0.1,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 12,
@@ -339,7 +339,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 22.3193,
   endLng: 114.1694,
   arcAlt: 0.2,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 12,
@@ -348,7 +348,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 34.0522,
   endLng: -118.2437,
   arcAlt: 0.3,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 13,
@@ -357,7 +357,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 22.3193,
   endLng: 114.1694,
   arcAlt: 0.3,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 13,
@@ -366,7 +366,7 @@ export const contactSampleArcs: Position[] = [
   endLat: 35.6762,
   endLng: 139.6503,
   arcAlt: 0.3,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 13,
@@ -375,7 +375,7 @@ export const contactSampleArcs: Position[] = [
   endLat: -34.6037,
   endLng: -58.3816,
   arcAlt: 0.1,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
  {
   order: 14,
@@ -384,6 +384,6 @@ export const contactSampleArcs: Position[] = [
   endLat: 21.395643,
   endLng: 39.883798,
   arcAlt: 0.3,
-  color: colors[Math.floor(Math.random() * (colors.length - 1))],
+  color: colors[Math.floor(Math.random() * colors.length)],
  },
 ];

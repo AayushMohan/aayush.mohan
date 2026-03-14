@@ -69,49 +69,52 @@ html.custom-cursor [tabindex] {
 :root {
   /* Loveable-style HSL design tokens (dark as default) */
   --background: 0 0% 4%;
-  --foreground: 42 20% 90%;
+  --foreground: 210 12% 92%;
 
   --card: 0 0% 7%;
   --card-foreground: 42 20% 90%;
   --popover: 0 0% 7%;
-  --popover-foreground: 42 20% 90%;
+  --popover-foreground: 210 12% 92%;
 
-  --primary: 42 78% 55%;
+  /* Chrome / silver */
+  --primary: 210 10% 78%;
   --primary-foreground: 0 0% 4%;
 
   --secondary: 0 0% 12%;
-  --secondary-foreground: 42 20% 90%;
+  --secondary-foreground: 210 12% 92%;
 
   --muted: 0 0% 14%;
   --muted-foreground: 0 0% 55%;
 
-  --accent: 42 78% 55%;
+  /* Navy blue */
+  --accent: 220 65% 55%;
   --accent-foreground: 0 0% 4%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 210 40% 98%;
 
   --border: 0 0% 16%;
   --input: 0 0% 16%;
-  --ring: 42 78% 55%;
+  --ring: 220 65% 55%;
 
   --radius: 0.75rem;
 
   /* Sidebar tokens (keep shadcn-style names used by your @theme mapping) */
   --sidebar: 0 0% 6%;
-  --sidebar-foreground: 42 20% 90%;
-  --sidebar-primary: 42 78% 55%;
+  --sidebar-foreground: 210 12% 92%;
+  --sidebar-primary: 210 10% 78%;
   --sidebar-primary-foreground: 0 0% 4%;
   --sidebar-accent: 0 0% 12%;
-  --sidebar-accent-foreground: 42 20% 90%;
+  --sidebar-accent-foreground: 210 12% 92%;
   --sidebar-border: 0 0% 16%;
-  --sidebar-ring: 42 78% 55%;
+  --sidebar-ring: 220 65% 55%;
 
   /* Optional compatibility aliases (older naming) */
   --sidebar-background: var(--sidebar);
 
   /* Custom tokens */
-  --gold: 42 78% 55%;
-  --gold-muted: 42 40% 35%;
+  /* Kept for backwards-compat with existing utilities/components */
+  --gold: var(--accent);
+  --gold-muted: 220 35% 35%;
   --surface-elevated: 0 0% 9%;
   --text-primary: 0 0% 95%;
   --text-secondary: 0 0% 60%;
@@ -135,32 +138,32 @@ html.custom-cursor [tabindex] {
 .dark {
   /* Keep .dark available; currently same palette as :root */
   --background: 0 0% 4%;
-  --foreground: 42 20% 90%;
+  --foreground: 210 12% 92%;
   --card: 0 0% 7%;
-  --card-foreground: 42 20% 90%;
+  --card-foreground: 210 12% 92%;
   --popover: 0 0% 7%;
-  --popover-foreground: 42 20% 90%;
-  --primary: 42 78% 55%;
+  --popover-foreground: 210 12% 92%;
+  --primary: 210 10% 78%;
   --primary-foreground: 0 0% 4%;
   --secondary: 0 0% 12%;
-  --secondary-foreground: 42 20% 90%;
+  --secondary-foreground: 210 12% 92%;
   --muted: 0 0% 14%;
   --muted-foreground: 0 0% 55%;
-  --accent: 42 78% 55%;
+  --accent: 220 65% 55%;
   --accent-foreground: 0 0% 4%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 210 40% 98%;
   --border: 0 0% 16%;
   --input: 0 0% 16%;
-  --ring: 42 78% 55%;
+  --ring: 220 65% 55%;
   --sidebar: 0 0% 6%;
-  --sidebar-foreground: 42 20% 90%;
-  --sidebar-primary: 42 78% 55%;
+  --sidebar-foreground: 210 12% 92%;
+  --sidebar-primary: 210 10% 78%;
   --sidebar-primary-foreground: 0 0% 4%;
   --sidebar-accent: 0 0% 12%;
-  --sidebar-accent-foreground: 42 20% 90%;
+  --sidebar-accent-foreground: 210 12% 92%;
   --sidebar-border: 0 0% 16%;
-  --sidebar-ring: 42 78% 55%;
+  --sidebar-ring: 220 65% 55%;
 }
 
 @layer base {
@@ -218,7 +221,11 @@ html.custom-cursor [tabindex] {
 
   .text-gradient-gold {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(42 78% 65%), hsl(42 60% 45%));
+    background-image: linear-gradient(
+      135deg,
+      hsl(var(--primary)),
+      hsl(var(--accent))
+    );
   }
 
   .glow-gold {

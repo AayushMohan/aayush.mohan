@@ -84,7 +84,7 @@ const Projects = () => {
                 <TiltCard>
                   <SpotlightCard
                     className="group overflow-hidden"
-                    spotlightColor="hsl(42 78% 55% / 0.12)"
+                    spotlightColor="hsl(var(--accent) / 0.12)"
                   >
                     <div
                       className="aspect-video overflow-hidden"

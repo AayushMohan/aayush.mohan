@@ -20,7 +20,7 @@ export const heroCopy = {
 } as const;
 
 export const heroProfileImage: HeroProfileImage = {
- src: "/assets/profile.jpg",
+ src: "/images/AayushMohan.jpg",
  alt: "Aayush Mohan",
  width: 144,
  height: 144,
@@ -31,9 +31,9 @@ export const heroRings = {
  baseSizePx: 250,
  stepPx: 200,
  borderColorByIndex: {
-  3: "hsl(42 78% 55% / 0.12)",
-  4: "hsl(42 78% 55% / 0.06)",
-  default: "hsl(0 0% 100% / 0.03)",
+  3: "hsl(var(--accent) / 0.22)",
+  4: "hsl(var(--accent) / 0.14)",
+  default: "hsl(var(--border) / 0.12)",
  } as const,
 } as const;
 

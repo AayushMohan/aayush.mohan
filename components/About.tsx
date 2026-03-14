@@ -32,7 +32,7 @@ const About = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-full max-w-sm mx-auto md:mx-0"
+            className="relative w-full max-w-[240px] sm:max-w-sm mx-auto md:mx-0"
           >
             <motion.div
               style={{ y: imageY }}

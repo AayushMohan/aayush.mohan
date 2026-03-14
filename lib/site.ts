@@ -1,6 +1,6 @@
 export const siteConfig = {
  name: "Aayush Mohan",
- title: "Aayush Mohan — Full‑Stack Developer & ML Enthusiast",
+ title: "Aayush Mohan — Full‑Stack Developer & ML Engineer",
  description:
   "Full-stack developer building scalable web apps and AI-powered products with TypeScript, React, Next.js, Node.js, and Python.",
  url: "https://aayushmohan.dev",
@@ -8,5 +8,5 @@ export const siteConfig = {
  twitterHandle: "@aayushmohan",
  // Fallback social preview image. If you add a dedicated OG image later,
  // update this path.
- ogImagePath: "/assets/profile.jpg",
+ ogImagePath: "/opengraph-image",
 } as const;

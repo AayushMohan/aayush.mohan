@@ -1,6 +1,11 @@
 "use client";
+import type { FC } from "react";
 import { useId, useMemo } from "react";
 import { motion } from "framer-motion";
+
+type FloatingParticlesProps = {
+  fixed?: boolean;
+};
 
 type Particle = {
   id: number;
@@ -30,7 +35,7 @@ function mulberry32(seed: number) {
   };
 }
 
-const FloatingParticles = () => {
+const FloatingParticles: FC<FloatingParticlesProps> = ({ fixed = true }) => {
   const id = useId();
   const particles = useMemo<Particle[]>(() => {
     const rand = mulberry32(hashStringToSeed(id));
@@ -46,7 +51,9 @@ const FloatingParticles = () => {
   }, [id]);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div
+      className={`${fixed ? "fixed" : "absolute"} inset-0 pointer-events-none z-0 overflow-hidden`}
+    >
       {particles.map((p) => (
         <motion.div
           key={p.id}
@@ -56,7 +63,7 @@ const FloatingParticles = () => {
             top: `${p.y}%`,
             width: `${p.size.toFixed(3)}px`,
             height: `${p.size.toFixed(3)}px`,
-            background: `hsl(var(--gold) / ${p.alpha})`,
+            background: `hsl(var(--border) / ${p.alpha})`,
           }}
           animate={{
             y: [0, -30, 0],

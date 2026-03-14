@@ -11,7 +11,7 @@ interface SpotlightCardProps {
 const SpotlightCard = ({
   children,
   className = "",
-  spotlightColor = "hsl(42 78% 55% / 0.08)",
+  spotlightColor = "hsl(var(--accent) / 0.08)",
 }: SpotlightCardProps) => {
   const divRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });

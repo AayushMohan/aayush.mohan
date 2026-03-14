@@ -1,8 +1,20 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import MagneticButton from "./MagneticButton";
+import FloatingParticles from "./FloatingParticles";
+import {
+  useBlinkingCursor,
+  useHeroParallax,
+  useTypingText,
+} from "./hero/heroHooks";
+import {
+  getBaseRingBorderColor,
+  getOrbitDotStyle,
+  getRingMask,
+  getRingSizePx,
+} from "./hero/heroRings";
 import {
   getHeroRingBorderColor,
   heroCopy,
@@ -13,62 +25,90 @@ import {
 } from "./data/heroData";
 
 const Hero = () => {
-  const [displayText, setDisplayText] = useState("");
-  const [showCursor, setShowCursor] = useState(true);
-
-  useEffect(() => {
-    const currentWord = heroName;
-    let timeoutId: ReturnType<typeof setTimeout> | undefined;
-
-    if (displayText !== currentWord) {
-      timeoutId = setTimeout(() => {
-        setDisplayText(currentWord.slice(0, displayText.length + 1));
-      }, heroTyping.speedMs);
-    }
-
-    return () => {
-      if (timeoutId) clearTimeout(timeoutId);
-    };
-  }, [displayText]);
-
-  useEffect(() => {
-    const interval = setInterval(
-      () => setShowCursor((p) => !p),
-      heroTyping.cursorBlinkMs,
-    );
-    return () => clearInterval(interval);
-  }, []);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const displayText = useTypingText(heroName, heroTyping.speedMs);
+  const showCursor = useBlinkingCursor(heroTyping.cursorBlinkMs);
+  const { particlesX, particlesY, glowX, glowY } = useHeroParallax(sectionRef);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center section-padding overflow-hidden">
+    <section
+      id="hero"
+      ref={sectionRef}
+      className="relative min-h-screen flex flex-col items-center justify-center section-padding overflow-hidden"
+    >
+      {/* Floating particles layer with parallax */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none z-0"
+        style={{ x: particlesX, y: particlesY }}
+      >
+        <FloatingParticles fixed={false} />
+      </motion.div>
+
       {/* Concentric rings */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[2]">
         {heroRings.indices.map((i) => (
           <motion.div
             key={i}
-            initial={{ scale: 0.6, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
+            initial={{ scale: 0.6, opacity: 0, rotate: 0 }}
+            animate={{
+              scale: 1,
+              opacity: 1,
+              rotate: i % 2 === 0 ? 360 : -360,
+            }}
             transition={{
-              delay: 0.2 + i * 0.15,
-              duration: 1.5,
-              ease: [0.22, 1, 0.36, 1],
+              scale: {
+                delay: 0.2 + i * 0.15,
+                duration: 1.5,
+                ease: [0.22, 1, 0.36, 1],
+              },
+              opacity: { delay: 0.2 + i * 0.15, duration: 1.5 },
+              rotate: {
+                duration: 30 + i * 10,
+                repeat: Infinity,
+                ease: "linear",
+              },
             }}
-            className="absolute rounded-full border"
+            className="absolute rounded-full"
             style={{
-              width: `${heroRings.baseSizePx + i * heroRings.stepPx}px`,
-              height: `${heroRings.baseSizePx + i * heroRings.stepPx}px`,
-              borderColor: getHeroRingBorderColor(i),
+              width: getRingSizePx(i, heroRings.baseSizePx, heroRings.stepPx),
+              height: getRingSizePx(i, heroRings.baseSizePx, heroRings.stepPx),
             }}
-          />
+          >
+            <div
+              className="absolute inset-0 rounded-full border"
+              style={{
+                borderColor: getBaseRingBorderColor(i),
+              }}
+            />
+
+            <div
+              className="absolute inset-0 rounded-full border"
+              style={{
+                borderColor: getHeroRingBorderColor(i),
+                maskImage: getRingMask(i),
+                WebkitMaskImage: getRingMask(i),
+              }}
+            />
+
+            {/* Orbiting dot */}
+            <div
+              className="absolute left-1/2 -translate-x-1/2 rounded-full"
+              style={getOrbitDotStyle(i)}
+            />
+          </motion.div>
         ))}
       </div>
 
       {/* Ambient glow */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full opacity-15 pointer-events-none"
+      <motion.div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full opacity-15 pointer-events-none z-[1]"
+        animate={{ opacity: [0.1, 0.2, 0.1], scale: [1, 1.05, 1] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         style={{
+          x: glowX,
+          y: glowY,
           background:
-            "radial-gradient(circle, hsl(42 78% 55% / 0.12), transparent 70%)",
+            "radial-gradient(circle, hsl(var(--accent) / 0.12), transparent 70%)",
         }}
       />
 
@@ -86,7 +126,7 @@ const Hero = () => {
               alt={heroProfileImage.alt}
               width={heroProfileImage.width}
               height={heroProfileImage.height}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-[50%_12%] scale-[1.12] origin-top"
               priority
             />
           </div>

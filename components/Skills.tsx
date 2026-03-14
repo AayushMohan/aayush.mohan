@@ -71,7 +71,7 @@ export default function Skills() {
                       whileHover={{ y: -6, scale: 1.1 }}
                       className="group/skill flex flex-col items-center gap-2"
                     >
-                      <div className="w-12 h-12 rounded-xl bg-secondary/50 border border-border flex items-center justify-center group-hover/skill:border-primary/40 group-hover/skill:bg-primary/5 group-hover/skill:shadow-[0_0_20px_-5px_hsl(42_78%_55%/0.2)] transition-all duration-300">
+                      <div className="w-12 h-12 rounded-xl bg-secondary/50 border border-border flex items-center justify-center group-hover/skill:border-primary/40 group-hover/skill:bg-primary/5 group-hover/skill:shadow-[0_0_20px_-5px_hsl(var(--accent)/0.2)] transition-all duration-300">
                         <img
                           src={icon}
                           alt={name}
