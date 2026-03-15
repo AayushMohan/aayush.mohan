@@ -85,7 +85,7 @@ export default function RootLayout({
     name: siteConfig.name,
     url: siteConfig.url,
     image: new URL(siteConfig.ogImagePath, siteConfig.url).toString(),
-    jobTitle: "Full-Stack Developer",
+    jobTitle: "Full-Stack Developer & AI Engineer",
     sameAs: [
       "https://github.com/aayushmohan",
       "https://www.linkedin.com/in/aayushmohan",

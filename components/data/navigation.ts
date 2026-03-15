@@ -47,7 +47,7 @@ export const footerSocialLinks: SocialLink[] = [
   href: "https://www.linkedin.com/in/aayushmohan/",
   label: "LinkedIn",
  },
- { icon: Twitter, href: "https://twitter.com/aaboroern", label: "Twitter" },
+ { icon: Twitter, href: "https://x.com/AayushMohan", label: "Twitter" },
  {
   icon: Instagram,
   href: "https://www.instagram.com/aayushmohan/",

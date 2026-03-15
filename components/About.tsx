@@ -56,7 +56,7 @@ const About = () => {
             />
           </motion.div>
 
-          <div>
+          <div className="max-w-xl lg:max-w-2xl">
             <motion.h2
               {...fadeUp}
               className="heading-lg mb-8"
@@ -69,21 +69,23 @@ const About = () => {
               </span>
             </motion.h2>
 
-            <motion.p
-              {...fadeUp}
-              transition={{ ...fadeUp.transition, delay: 0.1 }}
-              className="body-lg mb-6"
-            >
-              {aboutCopy.primary}
-            </motion.p>
+            <div className="space-y-6">
+              <motion.p
+                {...fadeUp}
+                transition={{ ...fadeUp.transition, delay: 0.1 }}
+                className="body-lg text-pretty"
+              >
+                {aboutCopy.primary}
+              </motion.p>
 
-            <motion.p
-              {...fadeUp}
-              transition={{ ...fadeUp.transition, delay: 0.2 }}
-              className="body-lg"
-            >
-              {aboutCopy.secondary}
-            </motion.p>
+              <motion.p
+                {...fadeUp}
+                transition={{ ...fadeUp.transition, delay: 0.2 }}
+                className="body-lg text-pretty"
+              >
+                {aboutCopy.secondary}
+              </motion.p>
+            </div>
           </div>
         </div>
       </div>

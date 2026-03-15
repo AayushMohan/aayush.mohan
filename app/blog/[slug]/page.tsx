@@ -468,7 +468,7 @@ export default async function BlogPostPage(props: PageProps) {
       </header>
 
       <main className="pt-32 pb-24">
-        <div className="max-w-[680px] mx-auto px-6 md:px-12 lg:px-24 mb-12">
+        <div className="max-w-2xl lg:max-w-4xl mx-auto px-6 md:px-12 lg:px-24 mb-12">
           <Script
             id="ld-blog-post"
             type="application/ld+json"
@@ -521,7 +521,7 @@ export default async function BlogPostPage(props: PageProps) {
 
         {/* Featured image */}
         {featuredImageUrl && (
-          <div className="max-w-[680px] mx-auto px-6 md:px-12 lg:px-24 mb-12">
+          <div className="max-w-2xl lg:max-w-4xl mx-auto px-6 md:px-12 lg:px-24 mb-12">
             <div className="overflow-hidden rounded-2xl border border-border bg-card/20">
               <Image
                 src={featuredImageUrl}
@@ -529,7 +529,7 @@ export default async function BlogPostPage(props: PageProps) {
                 width={1200}
                 height={630}
                 priority
-                sizes="(max-width: 768px) 100vw, 680px"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 672px, 896px"
                 className="w-full h-auto object-contain"
               />
             </div>
@@ -542,7 +542,7 @@ export default async function BlogPostPage(props: PageProps) {
         )}
 
         {/* Article content */}
-        <article className="max-w-[680px] mx-auto px-6 md:px-12 lg:px-24">
+        <article className="max-w-2xl lg:max-w-4xl mx-auto px-6 md:px-12 lg:px-24">
           <div className="rounded-2xl border border-border bg-card/40 p-6 md:p-8">
             <div
               className="blog-content"
@@ -554,7 +554,7 @@ export default async function BlogPostPage(props: PageProps) {
 
         {/* Tags at bottom */}
         {article.categories.length > 0 && (
-          <div className="max-w-[680px] mx-auto px-6 md:px-12 mt-16 pt-8 border-t border-border">
+          <div className="max-w-2xl lg:max-w-4xl mx-auto px-6 md:px-12 mt-16 pt-8 border-t border-border">
             <div className="flex flex-wrap items-center gap-3">
               <Tag size={14} className="text-muted-foreground" />
               {article.categories.map((cat) => (
@@ -571,7 +571,7 @@ export default async function BlogPostPage(props: PageProps) {
         )}
 
         {/* Navigation between posts */}
-        <div className="max-w-[680px] mx-auto px-6 md:px-12 mt-12 pt-8 border-t border-border">
+        <div className="max-w-2xl lg:max-w-4xl mx-auto px-6 md:px-12 mt-12 pt-8 border-t border-border">
           <div className="grid grid-cols-2 gap-6">
             {prevArticle ? (
               <Link
@@ -615,7 +615,7 @@ export default async function BlogPostPage(props: PageProps) {
         </div>
 
         {/* CTA */}
-        <div className="max-w-[680px] mx-auto px-6 md:px-12 mt-16">
+        <div className="max-w-2xl lg:max-w-4xl mx-auto px-6 md:px-12 mt-16">
           <div className="rounded-2xl border border-border bg-card p-8 text-center">
             <p className="label-caps mb-3">Enjoyed this article?</p>
             <h3

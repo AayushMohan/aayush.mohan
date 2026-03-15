@@ -5,9 +5,9 @@ export const aboutHeading = {
 
 export const aboutCopy = {
   primary:
-    "Web developer and AI engineer focused on building fast, reliable, and thoughtfully designed digital products. I work with JavaScript, TypeScript, React, Next.js, Node.js, and Python, and have hands-on experience applying machine learning to real-world problems.",
+    "Full-Stack Developer & AI Engineer focused on building fast, reliable, and thoughtfully designed digital products. My work blends modern web development with practical machine learning to create applications that are both technically robust and visually refined. I collaborate with founders and startups to turn ideas into scalable digital products that prioritize performance and usability.",
   secondary:
-    "Alongside web development, I explore applied AI, automation, and mobile development with React Native. I enjoy working in fast-paced environments, solving meaningful problems, and continuously refining both my technical skills and product thinking.",
+    "Alongside development work, I explore applied AI and machine learning, experimenting with deep learning and generative models to solve real-world problems. One of my recent research projects in medical imaging was published in Springer LNNS, where I worked on deep learning pipelines and experimentation with real datasets.",
 } as const;
 
 export const aboutImage = {

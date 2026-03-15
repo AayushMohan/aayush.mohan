@@ -1,8 +1,8 @@
 export const siteConfig = {
  name: "Aayush Mohan",
- title: "Aayush Mohan — Full‑Stack Developer & ML Engineer",
+ title: "Aayush Mohan | Full-Stack Developer & AI Engineer",
  description:
-  "Full-stack developer building scalable web apps and AI-powered products with TypeScript, React, Next.js, Node.js, and Python.",
+  "Full-Stack Developer & AI Engineer building modern web applications and AI-powered products. Experienced with React, Next.js, TypeScript, Node.js, Python, and applied machine learning.",
  url: "https://aayushmohan.dev",
  locale: "en_US",
  twitterHandle: "@aayushmohan",

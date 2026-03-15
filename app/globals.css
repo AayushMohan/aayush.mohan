@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-/* 
 /* Prefer Next.js `next/font` for performance; this is a safe fallback stack */
 :root {
   --font-sans-fallback:
@@ -303,6 +302,28 @@ html.custom-cursor [tabindex] {
   .blog-content ul,
   .blog-content ol {
     padding-left: 1.25rem;
+    list-style-position: outside;
+  }
+
+  .blog-content ul {
+    list-style-type: disc;
+  }
+
+  .blog-content ol {
+    list-style-type: decimal;
+  }
+
+  .blog-content li {
+    padding-left: 0.25rem;
+  }
+
+  .blog-content ::marker {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .blog-content ol > li::marker {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
   }
 
   .blog-content li + li {
