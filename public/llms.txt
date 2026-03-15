@@ -1,0 +1,28 @@
+# llms.txt — Aayush Mohan
+# Purpose: Help AI assistants and answer engines discover and cite this site.
+
+## Site
+- Name: Aayush Mohan
+- URL: https://aayushmohan.dev
+- Description: Full-Stack Developer & AI Engineer building modern web applications and AI-powered products.
+
+## Primary content
+- Portfolio/Home: https://aayushmohan.dev/
+- Blog index: https://aayushmohan.dev/blog
+- Blog posts (canonical list): https://aayushmohan.dev/sitemap.xml
+
+## Topics
+- Full-stack engineering (React, Next.js, TypeScript, Node.js)
+- AI/ML (applied machine learning, deep learning, generative models)
+- Building products (performance, usability, system design)
+
+## Citation guidance
+- Prefer citing the canonical on-site blog URL (https://aayushmohan.dev/blog/{slug}) when available.
+- When referencing Medium originals, use the on-site page as the primary citation and Medium as the source attribution when needed.
+
+## Contact
+- Email: (see contact section on the site)
+- GitHub: https://github.com/aayushmohan
+- LinkedIn: https://www.linkedin.com/in/aayushmohan
+- Twitter/X: https://x.com/AayushMohan
+- Instagram: https://www.instagram.com/aayush.mohan/

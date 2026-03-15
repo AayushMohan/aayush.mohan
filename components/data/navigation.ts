@@ -34,7 +34,7 @@ export const navbarSocialLinks: SocialLink[] = [
  },
  {
   icon: Instagram,
-  href: "https://www.instagram.com/aayushmohan/",
+  href: "https://www.instagram.com/aayush.mohan/",
   label: "Instagram",
  },
 ];
@@ -50,7 +50,7 @@ export const footerSocialLinks: SocialLink[] = [
  { icon: Twitter, href: "https://x.com/AayushMohan", label: "Twitter" },
  {
   icon: Instagram,
-  href: "https://www.instagram.com/aayushmohan/",
+  href: "https://www.instagram.com/aayush.mohan/",
   label: "Instagram",
  },
 ];
