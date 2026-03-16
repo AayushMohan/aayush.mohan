@@ -211,7 +211,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
   );
 
   return {
-    title: `${article.title} | ${siteConfig.name}`,
+    title: article.title,
     description,
     alternates: { canonical },
     openGraph: {

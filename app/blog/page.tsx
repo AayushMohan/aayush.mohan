@@ -11,16 +11,16 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: `Blog | ${siteConfig.name}`,
+  title: "Blog",
   description:
-    "All writing by Aayush Mohan — practical notes on full-stack engineering, AI/ML, and building products.",
+    "Technical articles on AI engineering, machine learning, and modern web development by Aayush Mohan.",
   alternates: {
     canonical: "/blog",
   },
   openGraph: {
-    title: `Blog | ${siteConfig.name}`,
+    title: "Blog",
     description:
-      "All writing by Aayush Mohan — practical notes on full-stack engineering, AI/ML, and building products.",
+      "Technical articles on AI engineering, machine learning, and modern web development by Aayush Mohan.",
     url: "/blog",
     type: "website",
   },
